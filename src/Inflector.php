@@ -4,15 +4,17 @@ declare(strict_types=1);
 
 namespace Doctrine\Inflector;
 
-use RuntimeException;
-
 use function chr;
+
 use function function_exists;
 use function lcfirst;
 use function mb_strtolower;
 use function ord;
 use function preg_match;
 use function preg_replace;
+
+use RuntimeException;
+
 use function sprintf;
 use function str_replace;
 use function strlen;

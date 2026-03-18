@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Doctrine\Inflector;
 
-use Doctrine\Inflector\Rules\Ruleset;
-
 use function array_merge;
+
+use Doctrine\Inflector\Rules\Ruleset;
 
 /**
  * Inflects based on multiple rulesets.

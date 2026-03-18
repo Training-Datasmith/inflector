@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Doctrine\Inflector;
 
-use Doctrine\Inflector\Rules\Ruleset;
-
 use function array_unshift;
+
+use Doctrine\Inflector\Rules\Ruleset;
 
 abstract class GenericLanguageInflectorFactory implements LanguageInflectorFactory
 {
