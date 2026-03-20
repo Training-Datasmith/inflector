@@ -1,24 +1,20 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Doctrine\Inflector;
 
-class CachedWordInflector implements WordInflector
+class Cached_Word_Inflector implements Word_Inflector
 {
     /** @var WordInflector */
-    private $wordInflector;
-
+    private $word_inflector;
     /** @var string[] */
     private $cache = [];
-
-    public function __construct(WordInflector $wordInflector)
+    public function __construct(Word_Inflector $word_inflector)
     {
-        $this->wordInflector = $wordInflector;
+        $this->word_inflector = $word_inflector;
     }
-
     public function inflect(string $word): string
     {
-        return $this->cache[$word] ?? $this->cache[$word] = $this->wordInflector->inflect($word);
+        return $this->cache[$word] ?? $this->cache[$word] = $this->word_inflector->inflect($word);
     }
 }

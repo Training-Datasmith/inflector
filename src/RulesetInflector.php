@@ -1,13 +1,10 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Doctrine\Inflector;
 
 use function array_merge;
-
 use Doctrine\Inflector\Rules\Ruleset;
-
 /**
  * Inflects based on multiple rulesets.
  *
@@ -17,40 +14,32 @@ use Doctrine\Inflector\Rules\Ruleset;
  * - The first ruleset that returns a different value for a regular word wins
  * - If none of the above match, the word is left as-is
  */
-class RulesetInflector implements WordInflector
+class Ruleset_Inflector implements Word_Inflector
 {
     /** @var Ruleset[] */
     private $rulesets;
-
     public function __construct(Ruleset $ruleset, Ruleset ...$rulesets)
     {
         $this->rulesets = array_merge([$ruleset], $rulesets);
     }
-
     public function inflect(string $word): string
     {
         if ($word === '') {
             return '';
         }
-
         foreach ($this->rulesets as $ruleset) {
-            if ($ruleset->getUninflected()->matches($word)) {
+            if ($ruleset->get_uninflected()->matches($word)) {
                 return $word;
             }
-
-            $inflected = $ruleset->getIrregular()->inflect($word);
-
+            $inflected = $ruleset->get_irregular()->inflect($word);
             if ($inflected !== $word) {
                 return $inflected;
             }
-
-            $inflected = $ruleset->getRegular()->inflect($word);
-
+            $inflected = $ruleset->get_regular()->inflect($word);
             if ($inflected !== $word) {
                 return $inflected;
             }
         }
-
         return $word;
     }
 }

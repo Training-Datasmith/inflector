@@ -1,12 +1,10 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Doctrine\Inflector;
 
 use Doctrine\Inflector\Rules\Ruleset;
-
-interface LanguageInflectorFactory
+interface Language_Inflector_Factory
 {
     /**
      * Applies custom rules for singularisation
@@ -15,8 +13,7 @@ interface LanguageInflectorFactory
      *
      * @return $this
      */
-    public function withSingularRules(?Ruleset $singularRules, bool $reset = false): self;
-
+    public function with_singular_rules(?Ruleset $singular_rules, bool $reset = false): self;
     /**
      * Applies custom rules for pluralisation
      *
@@ -24,8 +21,7 @@ interface LanguageInflectorFactory
      *
      * @return $this
      */
-    public function withPluralRules(?Ruleset $pluralRules, bool $reset = false): self;
-
+    public function with_plural_rules(?Ruleset $plural_rules, bool $reset = false): self;
     /**
      * Builds the inflector instance with all applicable rules
      */

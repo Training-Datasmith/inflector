@@ -1,38 +1,31 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Doctrine\Inflector\Rules;
 
 class Ruleset
 {
     /** @var Transformations */
     private $regular;
-
     /** @var Patterns */
     private $uninflected;
-
     /** @var Substitutions */
     private $irregular;
-
     public function __construct(Transformations $regular, Patterns $uninflected, Substitutions $irregular)
     {
-        $this->regular     = $regular;
+        $this->regular = $regular;
         $this->uninflected = $uninflected;
-        $this->irregular   = $irregular;
+        $this->irregular = $irregular;
     }
-
-    public function getRegular(): Transformations
+    public function get_regular(): Transformations
     {
         return $this->regular;
     }
-
-    public function getUninflected(): Patterns
+    public function get_uninflected(): Patterns
     {
         return $this->uninflected;
     }
-
-    public function getIrregular(): Substitutions
+    public function get_irregular(): Substitutions
     {
         return $this->irregular;
     }

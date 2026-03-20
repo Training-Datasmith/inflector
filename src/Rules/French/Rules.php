@@ -1,31 +1,20 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Doctrine\Inflector\Rules\French;
 
 use Doctrine\Inflector\Rules\Patterns;
 use Doctrine\Inflector\Rules\Ruleset;
 use Doctrine\Inflector\Rules\Substitutions;
 use Doctrine\Inflector\Rules\Transformations;
-
 final class Rules
 {
-    public static function getSingularRuleset(): Ruleset
+    public static function get_singular_ruleset(): Ruleset
     {
-        return new Ruleset(
-            new Transformations(...Inflectible::getSingular()),
-            new Patterns(...Uninflected::getSingular()),
-            (new Substitutions(...Inflectible::getIrregular()))->getFlippedSubstitutions()
-        );
+        return new Ruleset(new Transformations(...Inflectible::get_singular()), new Patterns(...Uninflected::get_singular()), (new Substitutions(...Inflectible::get_irregular()))->get_flipped_substitutions());
     }
-
-    public static function getPluralRuleset(): Ruleset
+    public static function get_plural_ruleset(): Ruleset
     {
-        return new Ruleset(
-            new Transformations(...Inflectible::getPlural()),
-            new Patterns(...Uninflected::getPlural()),
-            new Substitutions(...Inflectible::getIrregular())
-        );
+        return new Ruleset(new Transformations(...Inflectible::get_plural()), new Patterns(...Uninflected::get_plural()), new Substitutions(...Inflectible::get_irregular()));
     }
 }

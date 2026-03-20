@@ -1,24 +1,22 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace Doctrine\Inflector\Rules\English;
 
 use Doctrine\Inflector\Rules\Pattern;
 use Doctrine\Inflector\Rules\Substitution;
 use Doctrine\Inflector\Rules\Transformation;
 use Doctrine\Inflector\Rules\Word;
-
 class Inflectible
 {
     /** @return Transformation[] */
-    public static function getSingular(): iterable
+    public static function get_singular(): iterable
     {
         yield new Transformation(new Pattern('(s)tatuses$'), '\1\2tatus');
         yield new Transformation(new Pattern('(s)tatus$'), '\1\2tatus');
         yield new Transformation(new Pattern('(c)ampus$'), '\1\2ampus');
         yield new Transformation(new Pattern('^(.*)(menu)s$'), '\1\2');
-        yield new Transformation(new Pattern('(quiz)zes$'), '\\1');
+        yield new Transformation(new Pattern('(quiz)zes$'), '\1');
         yield new Transformation(new Pattern('(matr)ices$'), '\1ix');
         yield new Transformation(new Pattern('(vert|ind)ices$'), '\1ex');
         yield new Transformation(new Pattern('^(ox)en'), '\1');
@@ -58,9 +56,8 @@ class Inflectible
         yield new Transformation(new Pattern('^shorts$'), 'shorts');
         yield new Transformation(new Pattern('s$'), '');
     }
-
     /** @return Transformation[] */
-    public static function getPlural(): iterable
+    public static function get_plural(): iterable
     {
         yield new Transformation(new Pattern('(s)tatus$'), '\1\2tatuses');
         yield new Transformation(new Pattern('(quiz)$'), '\1zes');
@@ -88,9 +85,8 @@ class Inflectible
         yield new Transformation(new Pattern('^$'), '');
         yield new Transformation(new Pattern('$'), 's');
     }
-
     /** @return Substitution[] */
-    public static function getIrregular(): iterable
+    public static function get_irregular(): iterable
     {
         yield new Substitution(new Word('abuse'), new Word('abuses'));
         yield new Substitution(new Word('alga'), new Word('algae'));
